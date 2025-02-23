@@ -1,13 +1,160 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.game-container {
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.game-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.mode-selection, .mark-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.mode-btn, .reset-btn, .mark-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.mode-btn:hover, .reset-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.mark-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.mark-btn.x-mark {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.mark-btn.o-mark {
+  color: #44ff44;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-status {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.score-board {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.score {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.x-score {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.o-score {
+  color: #44ff44;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.cell.X {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.cell.O {
+  color: #44ff44;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
 }
